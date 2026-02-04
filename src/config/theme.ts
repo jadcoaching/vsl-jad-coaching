@@ -1,35 +1,36 @@
-// Thème Jad Coaching - Fond blanc, texte noir, accents bleu cyan
+// Thème Jad Coaching - Style cinéma premium avec grain
 export const THEME = {
   colors: {
-    // Couleurs principales
-    background: "#FFFFFF",
-    backgroundLight: "#F8F9FA",
-    backgroundCard: "#F5F7FA",
+    // Couleurs principales - fond sombre cinéma
+    background: "#0a0a0f",
+    backgroundDark: "#050508",
+    backgroundLight: "#12121a",
+    backgroundCard: "rgba(20, 20, 30, 0.85)",
 
-    // Bleu Jad Coaching (cyan/turquoise)
-    primary: "#5DCCF2",
-    primaryDark: "#4AB8DC",
-    primaryLight: "#7DD8F5",
+    // Bleu Jad Coaching - HSL: 191, 100%, 50%
+    primary: "#00CFFF",
+    primaryDark: "#00A8CC",
+    primaryLight: "#33D9FF",
+    primaryGlow: "rgba(0, 207, 255, 0.4)",
 
     // Texte
+    textWhite: "#FFFFFF",
     textBlack: "#000000",
     textGray: "#888888",
     textGrayLight: "#AAAAAA",
 
     // Gris pour cartes
-    cardBorder: "#E8E8E8",
-    cardShadow: "rgba(0, 0, 0, 0.08)",
-
-    // Header
-    logoBlack: "#000000",
-    logoCyan: "#00BCD4",
+    cardBorder: "rgba(0, 207, 255, 0.2)",
+    cardShadow: "rgba(0, 0, 0, 0.4)",
+    cardBackground: "rgba(15, 15, 25, 0.9)",
   },
 
-  // Ombres légères
+  // Ombres avec glow
   shadows: {
-    card: "0 4px 20px rgba(0, 0, 0, 0.08)",
-    cardHover: "0 8px 30px rgba(0, 0, 0, 0.12)",
-    subtle: "0 2px 10px rgba(0, 0, 0, 0.05)",
+    card: "0 8px 32px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 207, 255, 0.1)",
+    glow: "0 0 40px rgba(0, 207, 255, 0.3)",
+    textGlow: "0 0 30px rgba(0, 207, 255, 0.5)",
+    subtle: "0 4px 20px rgba(0, 0, 0, 0.3)",
   },
 
   // Fonts
