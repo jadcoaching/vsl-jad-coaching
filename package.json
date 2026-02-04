@@ -1,0 +1,24 @@
+{
+  "name": "vsl-jad-coaching",
+  "version": "1.0.0",
+  "description": "VSL Video for Jad Coaching - Maths, Stats & Finance",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render src/index.ts VSLVideo out/vsl-jad-coaching.mp4",
+    "build:gif": "remotion render src/index.ts VSLVideo out/vsl-jad-coaching.gif",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.200",
+    "@remotion/player": "4.0.200",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.200"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "prettier": "3.3.3",
+    "typescript": "5.5.4"
+  }
+}
