@@ -2,7 +2,7 @@ import { AbsoluteFill } from "remotion";
 import { THEME } from "../config/theme";
 import { TestimonialCard } from "../components/TestimonialCard";
 
-export const Slide09_Temoignage4: React.FC = () => {
+export const Slide13_Temoignage4: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
@@ -18,6 +18,7 @@ export const Slide09_Temoignage4: React.FC = () => {
         boldParts={["2.5/6", "5.5/6"]}
         name="Elisa Pucci"
         school="Unidistance"
+        avatarFile="elisa.jpg"
       />
     </AbsoluteFill>
   );

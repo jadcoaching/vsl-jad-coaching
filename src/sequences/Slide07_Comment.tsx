@@ -1,11 +1,17 @@
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame, spring, useVideoConfig } from "remotion";
 import { THEME } from "../config/theme";
 
-export const Slide03_Comment: React.FC = () => {
+export const Slide07_Comment: React.FC = () => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-  const opacity = interpolate(frame, [0, 25], [0, 1], { extrapolateRight: "clamp" });
-  const translateY = interpolate(frame, [0, 25], [40, 0], { extrapolateRight: "clamp" });
+  const textSpring = spring({
+    frame,
+    fps,
+    config: { damping: 10, stiffness: 80 },
+  });
+
+  const scale = interpolate(frame, [0, 20, 35], [0.85, 1.02, 1], { extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill
@@ -20,8 +26,8 @@ export const Slide03_Comment: React.FC = () => {
     >
       <div
         style={{
-          opacity,
-          transform: `translateY(${translateY}px)`,
+          transform: `translateY(${interpolate(textSpring, [0, 1], [50, 0])}px) scale(${scale})`,
+          opacity: textSpring,
           fontSize: 72,
           fontWeight: 800,
           fontStyle: "italic",

@@ -1,14 +1,23 @@
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame, spring, useVideoConfig } from "remotion";
 import { THEME } from "../config/theme";
 
 export const Slide01_Etudiant: React.FC = () => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-  const titleOpacity = interpolate(frame, [0, 20], [0, 1], { extrapolateRight: "clamp" });
-  const titleY = interpolate(frame, [0, 20], [30, 0], { extrapolateRight: "clamp" });
+  const titleSpring = spring({
+    frame,
+    fps,
+    config: { damping: 12, stiffness: 100 },
+  });
 
-  const subtitleOpacity = interpolate(frame, [15, 35], [0, 1], { extrapolateRight: "clamp" });
-  const subtitleY = interpolate(frame, [15, 35], [20, 0], { extrapolateRight: "clamp" });
+  const schoolsSpring = spring({
+    frame: frame - 20,
+    fps,
+    config: { damping: 15, stiffness: 80 },
+  });
+
+  const schoolsPulse = interpolate(frame, [50, 70, 90], [1, 1.03, 1], { extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill
@@ -23,13 +32,13 @@ export const Slide01_Etudiant: React.FC = () => {
     >
       <div
         style={{
-          opacity: titleOpacity,
-          transform: `translateY(${titleY}px)`,
-          fontSize: 72,
+          transform: `translateY(${interpolate(titleSpring, [0, 1], [60, 0])}px) scale(${interpolate(titleSpring, [0, 1], [0.9, 1])})`,
+          opacity: titleSpring,
+          fontSize: 82,
           fontWeight: 800,
           color: THEME.colors.textBlack,
           textAlign: "center",
-          letterSpacing: "-0.02em",
+          letterSpacing: "-0.03em",
         }}
       >
         Tu es étudiant en Suisse ?
@@ -37,14 +46,14 @@ export const Slide01_Etudiant: React.FC = () => {
 
       <div
         style={{
-          opacity: subtitleOpacity,
-          transform: `translateY(${subtitleY}px)`,
-          fontSize: 32,
-          fontWeight: 600,
+          transform: `translateY(${interpolate(schoolsSpring, [0, 1], [40, 0])}px) scale(${Math.max(0, schoolsSpring) * schoolsPulse})`,
+          opacity: Math.max(0, schoolsSpring),
+          fontSize: 44,
+          fontWeight: 700,
           color: THEME.colors.primary,
-          marginTop: 30,
+          marginTop: 45,
           textAlign: "center",
-          letterSpacing: "0.05em",
+          letterSpacing: "0.08em",
         }}
       >
         EPFL • HEC • EHL • HEG • HEIG • HSG • UNIVERSITÉ
