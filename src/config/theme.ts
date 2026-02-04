@@ -1,54 +1,50 @@
-// Thème Jad Coaching - Noir, Bleu, Gris
+// Thème Jad Coaching - Fond blanc, texte noir, accents bleu cyan
 export const THEME = {
   colors: {
     // Couleurs principales
-    background: "#000000",
-    backgroundDark: "#0a0a0a",
-    backgroundLight: "#111111",
+    background: "#FFFFFF",
+    backgroundLight: "#F8F9FA",
+    backgroundCard: "#F5F7FA",
 
-    // Bleu Jad Coaching
-    primary: "#0066FF",
-    primaryLight: "#3385FF",
-    primaryDark: "#0052CC",
+    // Bleu Jad Coaching (cyan/turquoise)
+    primary: "#5DCCF2",
+    primaryDark: "#4AB8DC",
+    primaryLight: "#7DD8F5",
 
     // Texte
-    textWhite: "#FFFFFF",
-    textGray: "#B3B3B3",
-    textDark: "#808080",
+    textBlack: "#000000",
+    textGray: "#888888",
+    textGrayLight: "#AAAAAA",
 
-    // Gris
-    gray: "#1a1a1a",
-    grayLight: "#2a2a2a",
-    grayDark: "#0d0d0d",
+    // Gris pour cartes
+    cardBorder: "#E8E8E8",
+    cardShadow: "rgba(0, 0, 0, 0.08)",
 
-    // Accents
-    accent: "#00D4FF",
-    success: "#00FF88",
+    // Header
+    logoBlack: "#000000",
+    logoCyan: "#00BCD4",
   },
 
-  // Ombres avec glow
+  // Ombres légères
   shadows: {
-    glow: "0 0 40px rgba(0, 102, 255, 0.5)",
-    glowStrong: "0 0 60px rgba(0, 102, 255, 0.7)",
-    glowAccent: "0 0 40px rgba(0, 212, 255, 0.5)",
-    textGlow: "0 0 20px rgba(0, 102, 255, 0.8)",
-    softShadow: "0 4px 30px rgba(0, 0, 0, 0.5)",
+    card: "0 4px 20px rgba(0, 0, 0, 0.08)",
+    cardHover: "0 8px 30px rgba(0, 0, 0, 0.12)",
+    subtle: "0 2px 10px rgba(0, 0, 0, 0.05)",
   },
 
   // Fonts
   fonts: {
-    primary: "'Inter', 'Helvetica Neue', sans-serif",
-    heading: "'Inter', 'Helvetica Neue', sans-serif",
-    mono: "'JetBrains Mono', monospace",
+    primary: "'Inter', 'SF Pro Display', -apple-system, sans-serif",
+    heading: "'Inter', 'SF Pro Display', -apple-system, sans-serif",
   },
 
   // Tailles de police
   fontSizes: {
     small: 24,
-    medium: 36,
+    medium: 32,
     large: 48,
     xlarge: 64,
-    xxlarge: 96,
-    hero: 120,
+    xxlarge: 80,
+    hero: 96,
   },
 };
