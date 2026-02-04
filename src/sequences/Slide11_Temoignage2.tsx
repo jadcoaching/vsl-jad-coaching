@@ -1,6 +1,7 @@
 import { AbsoluteFill } from "remotion";
 import { THEME } from "../config/theme";
 import { TestimonialCard } from "../components/TestimonialCard";
+import { CinematicBackground } from "../components/CinematicBackground";
 
 export const Slide11_Temoignage2: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const Slide11_Temoignage2: React.FC = () => {
         fontFamily: THEME.fonts.primary,
       }}
     >
+      <CinematicBackground />
       <TestimonialCard
         text="Je suis passé d'une note de 1.7/6 en mathématiques à 5/6 en peu de temps. Le changement a été immédiat : Jad expliquait chaque notion avec une clarté et une rapidité incroyables. Ce qui était flou en classe devenait limpide avec lui."
         boldParts={["d'une note de 1.7/6 en mathématiques à 5/6 en peu de temps"]}

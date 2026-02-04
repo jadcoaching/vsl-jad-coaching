@@ -1,6 +1,7 @@
 import { AbsoluteFill } from "remotion";
 import { THEME } from "../config/theme";
 import { TestimonialCard } from "../components/TestimonialCard";
+import { CinematicBackground } from "../components/CinematicBackground";
 
 export const Slide12_Temoignage3: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const Slide12_Temoignage3: React.FC = () => {
         fontFamily: THEME.fonts.primary,
       }}
     >
+      <CinematicBackground />
       <TestimonialCard
         text="Jad est un coach à la fois bienveillant et exigeant, toujours déterminé à te faire progresser et à te préparer au mieux pour tes examens. Grâce à son accompagnement, sa rigueur et une méthode structurée, j'ai obtenu la note de 6/6 en maths."
         boldParts={["6/6 en maths"]}

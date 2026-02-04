@@ -30,19 +30,19 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
   const avatarSpring = spring({
     frame: frame - 20,
     fps,
-    config: { damping: 10, stiffness: 100 },
+    config: { damping: 12, stiffness: 80 },
   });
 
   const textSpring = spring({
     frame: frame - 10,
     fps,
-    config: { damping: 14, stiffness: 70 },
+    config: { damping: 12, stiffness: 80 },
   });
 
   const renderText = () => {
     let result = text;
     boldParts.forEach((part) => {
-      result = result.replace(part, `<strong>${part}</strong>`);
+      result = result.replace(part, `<strong style="color: ${THEME.colors.primary};">${part}</strong>`);
     });
     return <span dangerouslySetInnerHTML={{ __html: result }} />;
   };
@@ -54,12 +54,14 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       style={{
         opacity: cardSpring,
-        transform: `translateY(${interpolate(cardSpring, [0, 1], [60, 0])}px) scale(${interpolate(cardSpring, [0, 1], [0.95, 1])})`,
+        transform: `translateY(${interpolate(cardSpring, [0, 1], [50, 0])}px)`,
         backgroundColor: THEME.colors.backgroundCard,
         borderRadius: 24,
         padding: "55px 65px",
         maxWidth: 850,
-        boxShadow: "0 8px 40px rgba(0, 0, 0, 0.08)",
+        boxShadow: THEME.shadows.card,
+        border: `1px solid rgba(0, 207, 255, 0.1)`,
+        zIndex: 1,
       }}
     >
       <div
@@ -68,7 +70,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
           transform: `translateY(${interpolate(textSpring, [0, 1], [20, 0])}px)`,
           fontSize: 26,
           fontWeight: 400,
-          color: THEME.colors.textBlack,
+          color: THEME.colors.textWhite,
           lineHeight: 1.65,
           marginBottom: 35,
         }}
@@ -82,7 +84,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
           alignItems: "center",
           gap: 18,
           opacity: Math.max(0, avatarSpring),
-          transform: `translateX(${interpolate(avatarSpring, [0, 1], [-20, 0])}px)`,
+          transform: `translateY(${interpolate(avatarSpring, [0, 1], [20, 0])}px)`,
         }}
       >
         <div
@@ -91,7 +93,8 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
             height: 60,
             borderRadius: "50%",
             overflow: "hidden",
-            border: `3px solid ${THEME.colors.primary}30`,
+            border: `3px solid ${THEME.colors.primary}`,
+            boxShadow: THEME.shadows.glow,
             backgroundColor: imageError ? THEME.colors.primary : "transparent",
             display: "flex",
             alignItems: "center",
@@ -119,7 +122,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
             style={{
               fontSize: 22,
               fontWeight: 700,
-              color: THEME.colors.textBlack,
+              color: THEME.colors.textWhite,
             }}
           >
             {name}
@@ -129,6 +132,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
               fontSize: 18,
               fontWeight: 600,
               color: THEME.colors.primary,
+              textShadow: THEME.shadows.textGlow,
             }}
           >
             {school}

@@ -1,5 +1,6 @@
 import { AbsoluteFill, interpolate, useCurrentFrame, spring, useVideoConfig } from "remotion";
 import { THEME } from "../config/theme";
+import { CinematicBackground } from "../components/CinematicBackground";
 
 export const Slide09_Stats: React.FC = () => {
   const frame = useCurrentFrame();
@@ -8,28 +9,19 @@ export const Slide09_Stats: React.FC = () => {
   const titleSpring = spring({
     frame,
     fps,
-    config: { damping: 12, stiffness: 100 },
-  });
-
-  const checkSpring = spring({
-    frame: frame - 25,
-    fps,
-    config: { damping: 8, stiffness: 150 },
+    config: { damping: 12, stiffness: 80 },
   });
 
   const schoolsSpring = spring({
-    frame: frame - 40,
+    frame: frame - 30,
     fps,
-    config: { damping: 14, stiffness: 80 },
+    config: { damping: 12, stiffness: 80 },
   });
 
   // Counter animation for 1254
   const countTo = 1254;
   const countProgress = interpolate(frame, [10, 50], [0, 1], { extrapolateRight: "clamp" });
   const currentCount = Math.round(countTo * countProgress);
-
-  const checkScale = interpolate(checkSpring, [0, 1], [0, 1.2]);
-  const checkScaleFinal = interpolate(frame, [35, 45], [1.2, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill
@@ -42,61 +34,52 @@ export const Slide09_Stats: React.FC = () => {
         fontFamily: THEME.fonts.primary,
       }}
     >
+      <CinematicBackground />
       <div
         style={{
           transform: `translateY(${interpolate(titleSpring, [0, 1], [50, 0])}px)`,
           opacity: titleSpring,
           fontSize: 68,
           fontWeight: 800,
-          color: THEME.colors.textBlack,
+          color: THEME.colors.textWhite,
           textAlign: "center",
           letterSpacing: "-0.02em",
           lineHeight: 1.2,
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 15,
+          textShadow: THEME.shadows.text,
+          zIndex: 1,
         }}
       >
-        <span>Plus de {currentCount} étudiants</span>
+        Plus de {currentCount} étudiants
         <br />
-        <span>accompagnés à la réussite</span>
-        <span
-          style={{
-            color: THEME.colors.primary,
-            fontSize: 72,
-            transform: `scale(${checkSpring > 0 ? (frame < 45 ? checkScale : checkScaleFinal) : 0})`,
-            display: "inline-block",
-          }}
-        >
-          ✓
-        </span>
+        accompagnés à la réussite
       </div>
 
       <div
         style={{
-          transform: `translateY(${interpolate(schoolsSpring, [0, 1], [30, 0])}px)`,
+          transform: `translateY(${interpolate(schoolsSpring, [0, 1], [50, 0])}px)`,
           opacity: Math.max(0, schoolsSpring),
           marginTop: 45,
           textAlign: "center",
+          zIndex: 1,
         }}
       >
         <div
           style={{
-            fontSize: 28,
-            fontWeight: 500,
-            color: THEME.colors.textGray,
+            fontSize: 38,
+            fontWeight: 700,
+            color: THEME.colors.primary,
             marginBottom: 10,
+            textShadow: THEME.shadows.textGlow,
           }}
         >
           Universités & Hautes Écoles suisses
         </div>
         <div
           style={{
-            fontSize: 26,
-            fontWeight: 500,
-            color: THEME.colors.textGray,
+            fontSize: 34,
+            fontWeight: 600,
+            color: THEME.colors.primary,
+            textShadow: THEME.shadows.textGlow,
           }}
         >
           EPFL, HEC, EHL, HEG, HEIG, UNIL, UNIGE, etc.

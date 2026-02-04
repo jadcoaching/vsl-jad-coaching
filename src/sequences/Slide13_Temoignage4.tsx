@@ -1,6 +1,7 @@
 import { AbsoluteFill } from "remotion";
 import { THEME } from "../config/theme";
 import { TestimonialCard } from "../components/TestimonialCard";
+import { CinematicBackground } from "../components/CinematicBackground";
 
 export const Slide13_Temoignage4: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const Slide13_Temoignage4: React.FC = () => {
         fontFamily: THEME.fonts.primary,
       }}
     >
+      <CinematicBackground />
       <TestimonialCard
         text="Premier examen de stats : 2.5/6. Deuxième examen de stats après les cours de Jad : 5.5/6 ! Avec le soutien de Jad, tu réaliseras que les statistiques sont accessibles et pas impossibles. Merci, Jad !!!"
         boldParts={["2.5/6", "5.5/6"]}
