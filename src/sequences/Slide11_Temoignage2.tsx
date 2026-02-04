@@ -18,7 +18,7 @@ export const Slide11_Temoignage2: React.FC = () => {
         boldParts={["d'une note de 1.7/6 en mathématiques à 5/6 en peu de temps"]}
         name="Stan Stelcher"
         school="HEIG-Vaud"
-        avatarFile="stan.jpg"
+        avatarFile="stan.png"
       />
     </AbsoluteFill>
   );

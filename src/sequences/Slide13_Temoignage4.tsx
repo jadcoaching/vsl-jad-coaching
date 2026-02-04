@@ -18,7 +18,7 @@ export const Slide13_Temoignage4: React.FC = () => {
         boldParts={["2.5/6", "5.5/6"]}
         name="Elisa Pucci"
         school="Unidistance"
-        avatarFile="elisa.jpg"
+        avatarFile="elisa.png"
       />
     </AbsoluteFill>
   );

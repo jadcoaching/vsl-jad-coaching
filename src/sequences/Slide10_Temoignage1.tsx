@@ -18,7 +18,7 @@ export const Slide10_Temoignage1: React.FC = () => {
         boldParts={["2/6 à mon premier examen", "5.5/6 après l'accompagnement JadCoaching"]}
         name="Lou Zahnd"
         school="HEC Lausanne"
-        avatarFile="lou.jpg"
+        avatarFile="lou.png"
       />
     </AbsoluteFill>
   );

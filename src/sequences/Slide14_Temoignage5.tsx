@@ -18,7 +18,7 @@ export const Slide14_Temoignage5: React.FC = () => {
         boldParts={["d'excellentes notes en Analyse et en Algèbre Linéaire"]}
         name="Alexis Allemand"
         school="EPFL"
-        avatarFile="alexis.jpg"
+        avatarFile="alexis.png"
       />
     </AbsoluteFill>
   );
